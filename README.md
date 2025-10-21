@@ -1,17 +1,12 @@
 # MILKImageProcessor
 
-A SwiftUI application built for the **MILK Books Swift Developer Challenge**,  
-demonstrating structured architecture, Swift Concurrency, and lightweight unit testing.
+A SwiftUI application built for the **MILK Books Swift Developer Challenge**, demonstrating structured architecture, Swift Concurrency, and lightweight unit testing.
 
----
 
 ## Overview
 
-This app allows users to select up to **10 photos** from their library,  
-then automatically generates resized versions (1024 px and 256 px).  
-Each image is processed asynchronously with a maximum of **2 concurrent tasks** using a custom concurrency limiter.
+This app allows users to select up to **10 photos** from their library, then automatically generates resized versions (1024 px and 256 px). Each image is processed asynchronously with a maximum of **2 concurrent tasks** using a custom concurrency limiter.
 
----
 
 ## Key Features
 
@@ -23,9 +18,8 @@ Each image is processed asynchronously with a maximum of **2 concurrent tasks** 
 - **Robust error handling** — a single failure doesn’t interrupt other jobs  
 - **Unit tests** — for all key services and view models  
 
----
 
-## 🧱 Project Architecture
+## Project Architecture
 
 The project follows a **clean MVVM architecture** to ensure clarity, testability, and scalability.
 
@@ -37,7 +31,6 @@ The project follows a **clean MVVM architecture** to ensure clarity, testability
 
 This separation allows the processing logic to evolve independently of the UI and makes testing and maintenance easier.
 
----
 
 ## Project Structure
 
@@ -72,7 +65,6 @@ MILKImageProcessor/
     └── ProcessingViewModelTests.swift
 ```
 
----
 
 ## Run Instructions
 
@@ -88,7 +80,6 @@ MILKImageProcessor/
 5. Tap **“Start Processing”** to begin  
 6. Processed images are stored in the app’s temporary directory (paths logged in console)
 
----
 
 ## Unit Tests
 
@@ -101,12 +92,10 @@ Run all tests using **⌘ U** in Xcode.
 | `ImageProcessingServiceTests` | Validates resizing logic |
 | `ProcessingViewModelTests` | Ensures async flow and reset logic |
 
----
 
 ## Developer Notes
 
-This project was completed in one day, focusing on correctness,  
-clarity, and maintainable architecture instead of UI complexity.
+This project was completed in one day, focusing on correctness, clarity, and maintainable architecture instead of UI complexity.
 
 Main priorities included:
 - Using **Swift Concurrency** safely  
@@ -114,9 +103,7 @@ Main priorities included:
 - Demonstrating clear **MVVM** structure  
 - Maintaining readable, production-level code quality  
 
----
 
 ## License
 
-Created for the **MILK Books Swift Developer Challenge (2025)**.  
-All code is for demonstration and evaluation purposes only.
+Created for the **MILK Books Swift Developer Challenge (2025)**. All code is for demonstration and evaluation purposes only.
