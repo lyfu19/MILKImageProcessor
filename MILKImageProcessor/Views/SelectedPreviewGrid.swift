@@ -44,19 +44,13 @@ struct SelectedPreviewGrid: View {
             }
             
             thumbnails = Array(repeating: nil, count: items.count)
-            let limiter = AsyncLimiter(limit: 2)
             
             for (index, item) in items.enumerated() {
-                await limiter.acquire()
-                Task.detached(priority: .userInitiated) {
-                    defer { Task { await limiter.release() } }
-                    
+                Task(priority: .userInitiated) {
                     guard let data = try? await item.loadTransferable(type: Data.self),
                           let image = UIImage(data: data) else { return }
                     
-                    await MainActor.run {
-                        thumbnails[index] = image
-                    }
+                    thumbnails[index] = image
                 }
             }
         }

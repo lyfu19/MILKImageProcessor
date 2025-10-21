@@ -42,7 +42,8 @@ final class ProcessingViewModel {
         // Process photos concurrently (limited by AsyncLimiter)
         await withTaskGroup(of: Void.self) { group in
             for (index, item) in selectedItems.prefix(10).enumerated() {
-                group.addTask {
+                group.addTask { [weak self] in
+                    guard let self else { return }
                     await self.processItem(item, index: index)
                 }
             }
@@ -102,7 +103,6 @@ final class ProcessingViewModel {
     }
     
     /// Updates job status safely on the main actor.
-    @MainActor
     private func updateStatus(at index: Int, to status: JobStatus) {
         guard jobs.indices.contains(index) else { return }
         jobs[index].status = status
